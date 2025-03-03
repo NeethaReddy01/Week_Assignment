@@ -1,0 +1,184 @@
+package day12Tasks;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class DigitalClock implements Runnable {
+	@Override 
+	public void run
+}
+public class MultiThreadedClock {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+//set autocommit=off;
+//select * from account1;
+//savepoint a;
+//delete from account1 where id=101;
+//savepoint b;
+//delete from account1 where id=105;
+//savepoint c;
+//delete from account1 where id=110;
+//rollback to a;
+//commit;
+//
+//
+//
+//create table account3 as select * from account123;
+//select * from account3;
+//
+//set autocommit=off;
+//savepoint a;
+//delete from account3 where id=104;
+//savepoint b;
+//delete from account3 where id=111;
+//savepoint c;
+//delete from account3 where id=110;
+//rollback to c;
+//rollback to b;
+//rollback to a;
+//commit;
+//
+//DELIMITER $$
+//CREATE PROCEDURE GetAllEmployees()
+//BEGIN
+//    SELECT * FROM emp;
+//END $$
+//DELIMITER ;
+//
+//CALL GetAllEmployees();
+//
+//
+//
+//
+//DELIMITER $$
+//CREATE PROCEDURE GetEmployeeById(IN emp_id INT)
+//BEGIN
+//    SELECT * FROM emp WHERE id = emp_id;
+//END $$
+//DELIMITER ;
+//
+//CALL GetEmployeeById(101);
+//
+//
+//
+//DELIMITER $$
+//CREATE PROCEDURE GetEmployeeNameById(IN emp_id INT, OUT emp_name VARCHAR(100))
+//BEGIN
+//    SELECT name INTO emp_name FROM emp WHERE id = emp_id;
+//
+//END $$
+//DELIMITER ;
+//
+//CALL GetEmployeeNameById(101, @name);
+//SELECT @name;
+//
+//
+//DELIMITER $$
+//CREATE PROCEDURE PrintNumbers()
+//BEGIN
+//    DECLARE counter INT DEFAULT 1;
+//    
+//    WHILE counter <= 5 DO
+//        SELECT counter;
+//        SET counter = counter + 1;
+//    END WHILE;
+//END $$
+//DELIMITER ;
+//CALL PrintNumbers();
+//
+//
+//DELIMITER $$
+//CREATE PROCEDURE CheckSalary(IN salary INT, OUT category VARCHAR(20))
+//BEGIN
+//    IF salary < 3000 THEN
+//        SET category = 'Low';
+//    ELSEIF salary BETWEEN 3000 AND 7000 THEN
+//        SET category = 'Medium';
+//    ELSE
+//        SET category = 'High';
+//    END IF;
+//END $$
+//DELIMITER ;
+//
+//CALL CheckSalary(5000, @result);
+//SELECT @result;
+//
+//
+//
+//
+//
+//DELIMITER $$
+//CREATE PROCEDURE FetchEmployeeNames()
+//BEGIN
+//    DECLARE done INT DEFAULT 0;
+//    DECLARE emp_name VARCHAR(100);
+//    DECLARE cur CURSOR FOR SELECT name FROM employees;
+//    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+//    OPEN cur;
+//    read_loop: LOOP
+//        FETCH cur INTO emp_name;
+//        IF done = 1 THEN
+//            LEAVE read_loop;
+//        END IF;
+//        SELECT emp_name;
+//    END LOOP;
+//    CLOSE cur;
+//END $$
+//DELIMITER ;
+//
+//CALL FetchEmployeeNames();
+//
+//
+//Triggers:
+//=================
+//DELIMITER $$
+//CREATE TRIGGER BeforeSalaryUpdate
+//BEFORE/after  insert/delete/UPDATE ON emp
+//FOR EACH ROW
+//BEGIN
+//
+//
+//    INSERT INTO salary_log(employee_id, old_salary, new_salary, change_date)
+//    VALUES (OLD.id, OLD.salary, NEW.salary, NOW());
+//
+//END $$
+//DELIMITER ;
+//
+//
+//
+//Function:
+//=================
+//DELIMITER $$
+//CREATE FUNCTION CalculateBonus(salary DECIMAL(10,2)) RETURNS DECIMAL(10,2)
+//DETERMINISTIC
+//BEGIN
+//    DECLARE bonus DECIMAL(10,2);
+//    SET bonus = salary * 0.1;
+//    RETURN bonus;
+//END $$
+//DELIMITER ;
+//
+//SELECT CalculateBonus(5000);
+//
+//
+//create index titleindex on bookinfo5(title);
+//DELIMITER $$
+//CREATE PROCEDURE getBooks2(in id int,out currentTime1 DATETIME,out currentTime2 DATETIME)
+//BEGIN
+//set currentTime1=now();
+//select * from bookinfo5 where bid=id;
+//set currentTime2=now();
+//END $$
+//DELIMITER ;
+//call getBooks2(20,@t1,@t2);
+//select @t1,@t2;
+
+
